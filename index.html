@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html  lang="FA"  dir="rtl"> 
+    <head> 
+        <title> دوره طراحی  </title>
+        <meta  charset='utf-8'>
+        <link rel="stylesheet" type="text/css" href ="css/style.css">
+       <body   >  
+        <canvas	width="800" height="500">   </canvas>
+        <div class="controls">
+          <ul>
+            <li class="red selected"></li>
+            <li class="blue"></li>
+            <li class="magenta"></li>
+          </ul>
+          <button id="revealColorSelect">رنگ جدید</button>
+          <div id="colorSelect">
+            <span id="newColor"></span>
+            <div class="sliders">
+              <p>
+                <label for="red">قرمز</label>
+                <input id="red" name="red" type="range" min=0 max=255 value=0>
+              </p>
+              <p>
+                <label for="green">سبز</label>
+                <input id="green" name="green" type="range" min=0 max=255 value=0>
+              </p>
+              <p>
+                <label for="blue">آبی</label>
+                <input id="blue" name="blue" type="range" min=0 max=255 value=0>
+              </p>
+            </div>
+            <div>
+            <button id="addNewColor">اضافه کردن رنگ</button>
+            </div>
+          </div>
+        </div>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+
+var color = $(".selected").css("background-color");
+var $canvas = $("canvas");
+var context = $canvas[0].getContext("2d");
+var lastEvent;
+var mouseDown=false;
+
+ 
+$(".controls").on("click", "li", function(){
+ 
+  $(this).siblings().removeClass("selected");
+  $(this).addClass("selected");
+  color = $(this).css("background-color");
+});
+ 
+$("#revealColorSelect").click(function(){
+  changeColor();
+  $("#colorSelect").toggle();
+});
+
+ 
+function changeColor() {
+  var r = $("#red").val();
+  var g = $("#green").val();
+  var b = $("#blue").val();
+  $("#newColor").css("background-color", "rgb(" + r + "," + g +", " + b + ")");
+}
+
+ 
+$("input[type=range]").change(changeColor);
+
+ 
+$("#addNewColor").click(function(){
+  var $newColor = $("<li></li>");
+  $newColor.css("background-color", $("#newColor").css("background-color"));
+  $(".controls ul").append($newColor);
+  $newColor.click();
+});
+ 
+$canvas.mousedown(function(e){
+  lastEvent = e;
+  mouseDown = true;
+  // console.log(lastEvent);
+  // console.log("X position : " + lastEvent.offsetX);
+  // console.log("Y position : " + lastEvent.offsetY);
+}).mousemove(function(e){
+
+  if(mouseDown){
+      context.beginPath();
+      context.moveTo(lastEvent.offsetX,lastEvent.offsetY);
+      context.lineTo(e.offsetX,e.offsetY);
+      context.strokeStyle=color;
+      context.stroke();
+
+  }
+}).mouseup(function(){
+  mouseDown =false;
+}).mouseleave(function(){
+  $canvas.mouseup();
+});
+
+ 
+
+</script>
+ 
+<script  >
+//   var $password = $("#password");
+//   var $confirmpassword = $("#confirmpassword");
+
+//   $("form span").hide();
+
+
+// function checkifgreatthan(){
+//   return $password.val().length > 6 ;
+// }
+
+// function checkifequal(){
+//   return $password.val() === $confirmpassword.val();
+// } 
+//  function checkpassword(){
+//   if( checkifgreatthan()){
+//     $password.next().hide();
+//   }else{
+//     $password.next().show();
+//   }
+//  }
+
+
+//  function confirmpasswordcheck(){
+//   if( checkifequal() ){
+//     $confirmpassword.next().hide();
+//   }else{
+//     $confirmpassword.next().show();
+//   }
+//  }
+
+//  $password.focus(checkpassword).keyup(checkpassword);
+
+//  $confirmpassword.focus(confirmpasswordcheck).keyup(confirmpasswordcheck);
+
+</script> 
+<script >
+//   var lightbox= $("<div id='graylightbox'></div>");
+//   var image = $("<img>");
+//   var caption = ("<p></p>");
+  
+//   $("body").append(lightbox);
+//   $("#graylightbox").append(image);
+//   $("#graylightbox").append(caption);
+
+//   $(".mainlightbox img").click(function(){
+//    var imglocation= $(this).attr("src");
+//    image.attr("src",imglocation);
+//    var imagecaption  = $(this).attr("alt");
+// // console.log(imagecaption);
+//     $("#graylightbox").show("slow");
+
+//   });
+
+  
+// $("#graylightbox").click(function(){
+//   $(this).hide("slow");
+// });
+
+  // // give element by id  with js
+  //  document.getElementById("soheilbabae");
+  // //  give element by id with jquery very easy
+  //  $("#soheilbabae");
+  //   // give element by class  with js
+
+  //  document.getElementsByClassName("soheilbabae");
+  //    //  give element by id with jquery very easy
+  //  $(".soheilbabae");
+
+// $(".ok").click(function(){
+//   $(".testparagraph").hide("slow","linear",function(){
+//     alert("hide ok");
+//   })
+// });
+
+//  $(".showtest").click(function(){
+//   $(".testparagraph").show("slow","linear",function(){
+//     alert("show ok");
+//   });
+//  });
+ 
+
+
+
+
+
+</script>
+
+    </body>
+</html>

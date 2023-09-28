@@ -1,0 +1,95 @@
+ 
+ body{
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+.cardiv{
+   
+   margin-top: 10%;  
+   background: url("../images/vintage-car.webp");
+   background-size: 100px 100px;
+   position:relative;
+   /* width: 120px;
+   height: 200px; */
+   /* -webkit-animation: car 4s 1s  ease-in-out    ; */
+
+}
+
+.cardiv::after{
+   content: "";
+   background: url("../images/steam.png") no-repeat;
+   width: 100px;
+   height: 90PX;
+   position: absolute;
+   right: 70%;
+   top: 5%;
+   opacity:0;
+   -webkit-animation: steam 4s  1s  ease-in-out    ;
+}
+.cyclediv{
+   background: url("../images/pngimg.com\ -\ car_wheel_PNG23302.png")   no-repeat ;
+   background-position: center;
+   background-size: 65% ;
+   border-radius: 100%;
+   width: 150px;
+   height: 100px;
+   position: absolute;
+   right: 80%;
+   top: 50%;
+   z-index: 100;
+   -webkit-animation: cycledivcar 4s   1s ease-in-out     ;
+}
+.secondcyclediv{
+   background: url("../images/pngimg.com\ -\ car_wheel_PNG23302.png")   no-repeat ;
+   background-position: center;
+   background-size: 65% ;
+   border-radius: 100%;
+   width: 150px;
+   height: 100px;
+   position: absolute;
+   right: 91%;
+   top: 50%;
+   z-index: 90;
+   -webkit-animation: cycledivcar 4s  1s  ease-in-out     ;
+}
+
+.frontlight{
+   width: 40px;
+   height:40px;
+   border-radius: 26% 74% 19% 81% / 22% 65% 35% 78% ;
+   position: absolute;
+   background-color: white;
+   
+   right: 79.8%;
+   top: 48%;
+   rotate: 20deg;
+   z-index: 80;
+   -webkit-animation: light 4s  1s ease-in-out     ;
+}
+
+
+.redtraphiclight{
+   width: 40px;
+   height:40px;
+   border-radius: 100% ;
+   position: fixed;
+   background-color: red;
+   right: 34.9%;
+   top: 42.4%;
+   z-index: 60;
+   opacity: 0.1;
+   -webkit-animation: redtraphiclight 2s  1s ease-in-out     ;
+}
+
+.greentraphiclight{
+   width: 40px;
+   height:40px;
+   border-radius: 100% ;
+   position: fixed;
+   background-color: green;
+   right: 34.9%;
+   top: 47.5%;
+   z-index: 60;
+   opacity: 0.1;
+   -webkit-animation: greentraphiclight 2s  1s ease-in-out     ;
+}
